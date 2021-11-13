@@ -14,7 +14,7 @@
 #CXX = g++
 #CXX = clang++
 
-IMGUI_DIR = ../imgui
+IMGUI_DIR = ../CKimgui
 LIB = libimplot.a
 SOURCES += ./implot.cpp ./implot_items.cpp ./implot_demo.cpp
 OBJS = $(addsuffix .o, $(basename $(notdir $(SOURCES))))
