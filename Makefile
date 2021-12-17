@@ -14,6 +14,10 @@
 #CXX = g++
 #CXX = clang++
 
+source = ./
+header_target = /usr/local/include/implot/
+lib_target = /usr/local/lib/
+
 IMGUI_DIR = ../CKimgui
 LIB = libimplot.a
 SOURCES += ./implot.cpp ./implot_items.cpp ./implot_demo.cpp
@@ -78,7 +82,11 @@ all: $(LIB)
 $(LIB): $(OBJS)
 	ar -rv $@ $^ 
 
-native: all
-
 clean:
 	rm -f $(LIB) $(OBJS)
+
+install: $(LIB)
+	install implot_internal.h -Dv $(header_target)implot_internal.h
+	install implot.h -Dv $(header_target)implot.h
+	install libimplot.a -Dv $(lib_target)libimplot.a
+	install implot-config.cmake -Dv $(lib_target)cmake/implot/implot-config.cmake
